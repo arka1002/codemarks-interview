@@ -1,5 +1,6 @@
 import "./styles.css";
 import Sidebar from "./components/sidebar";
+import Content from "./components/content";
 import { useState } from "react";
 import { Flex, Divider } from "@aws-amplify/ui-react";
 
@@ -19,6 +20,10 @@ function App() {
         <Divider orientation="horizontal" />
       </Flex>
       <Sidebar isOpen={sidebarOpen} toggleSidebar={handleViewSidebar} />
+      <div className="flex justify-center">
+        <Content />
+      </div>
+
     </div>
   );
 }
