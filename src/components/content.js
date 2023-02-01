@@ -1,6 +1,7 @@
 import { useQuery, useQueryClient } from "@tanstack/react-query";
 import { API } from "aws-amplify";
 import { listRevenues } from "../graphql/queries";
+import IndieEvents from "./indieEvents";
 
 
 export default function Content() {
@@ -25,9 +26,18 @@ export default function Content() {
     if (isError) {
         return <span>Error: {error.message}</span>
     }
+    
     return (
         <>
-            <p>Hi</p>
+            <p>
+                <ul className="list-disc">
+                    {
+                        revenue.map((bill) => (
+                            <li key={bill.id}><IndieEvents id={bill.id} year={bill.year} revenue={bill.revenue} /></li>
+                        ))
+                    }
+                </ul>
+            </p>
         </>
     );
 };
