@@ -5,6 +5,7 @@ import { createRevenue } from "../graphql/mutations";
 import IndieEvents from "./indieEvents";
 import { useForm } from "react-hook-form";
 import { useEffect } from "react";
+import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 
 
 export default function Content() {
@@ -49,6 +50,7 @@ export default function Content() {
 
     return (
         <div className="flex flex-col gap-y-4">
+            <div>Hi! John Doe <AccountCircleIcon/></div>
             <div>
                 <ul className="list-disc">
                     {
