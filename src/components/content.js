@@ -2,6 +2,7 @@ import { useQuery, useQueryClient } from "@tanstack/react-query";
 import { API } from "aws-amplify";
 import { listRevenues } from "../graphql/queries";
 import IndieEvents from "./indieEvents";
+import { useForm } from "react-hook-form";
 
 
 export default function Content() {
@@ -26,10 +27,10 @@ export default function Content() {
     if (isError) {
         return <span>Error: {error.message}</span>
     }
-    
+
     return (
-        <>
-            <p>
+        <div className="flex flex-col">
+            <div>
                 <ul className="list-disc">
                     {
                         revenue.map((bill) => (
@@ -37,7 +38,8 @@ export default function Content() {
                         ))
                     }
                 </ul>
-            </p>
-        </>
+            </div>
+            <div>Hi Mom</div>
+        </div>
     );
 };

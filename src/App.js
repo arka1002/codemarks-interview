@@ -1,4 +1,5 @@
 import "./styles.css";
+import '@aws-amplify/ui-react/styles.css';
 import Sidebar from "./components/sidebar";
 import Content from "./components/content";
 import { useState } from "react";
