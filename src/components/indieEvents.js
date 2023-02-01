@@ -14,10 +14,16 @@ export default function IndieEvents({ id, year, revenue }) {
         onSuccess: () => queryClient.invalidateQueries({ queryKey: ['revenue'] }),
     })
     return (
-        <>
-            <span className="text-amber-600 italic">Year :- </span>{year}, <span className="text-amber-600 italic">Revenue :- </span>₹{revenue}            <a className="italic cursor-pointer underline underline-offset-2 text-red-500" onClick={() => {
+        <div className="flex flex-row justify-around border-2 border-slate-100 rounded-lg p-2 bg-slate-100 mt-2">
+            <div><span className="text-amber-600 italic">Year :- </span>{year}</div>
+            <div><span className="text-amber-600 italic">Revenue :- </span>₹{revenue}</div>
+            <div><a className="italic cursor-pointer underline underline-offset-2 text-red-500" onClick={() => {
                 deleteMutation.mutate({ id: id })
-            }}>Delete &#9746;</a>
-        </>
+            }}>Remove</a></div>
+
+
+
+                       
+        </div>
     );
 };

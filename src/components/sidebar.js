@@ -1,5 +1,7 @@
 import React from "react";
 import Content from "./content";
+import NotificationsActiveIcon from '@mui/icons-material/NotificationsActive';
+import EmojiPeopleIcon from '@mui/icons-material/EmojiPeople';
 
 export default function Sidebar() {
     return (
@@ -160,25 +162,30 @@ export default function Sidebar() {
                 </div>
             </div>
             <div className="container mx-auto mt-12">
-                <h1 className="text-center">Revenue Forecasts</h1>
-                <div className="grid grid-cols-1 gap-6 mb-6 lg:grid-cols-3">
+                <div className="flex flex-row justify-around">
+                    <div><h1 className="text-center text-2xl">Hi <EmojiPeopleIcon/> Micin</h1></div>
+                    <div><NotificationsActiveIcon /></div>
+                </div>
+
+
+                <div className="grid grid-cols-1 gap-6 mb-6 lg:grid-cols-1 justify-items-center">
                     <div className="w-full px-4 py-5 bg-white rounded-lg">
                         <div className="text-sm font-medium text-gray-500 truncate">
-                            
+
                         </div>
                         <div className="mt-1 text-3xl font-semibold text-gray-900">
-                            
+
                         </div>
                     </div>
-                    <div className="w-full px-4 py-5 bg-white rounded-lg">
-                        <Content/>
+                    <div className="w-6/12 px-4 py-5 bg-white rounded-lg">
+                        <Content />
                     </div>
                     <div className="w-full px-4 py-5 bg-white rounded-lg">
                         <div className="text-sm font-medium text-gray-500 truncate">
-                            
+
                         </div>
                         <div className="mt-1 text-3xl font-semibold text-gray-900">
-                            
+
                         </div>
                     </div>
                 </div>
