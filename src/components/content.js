@@ -3,6 +3,7 @@ import { API } from "aws-amplify";
 import { listRevenues } from "../graphql/queries";
 import IndieEvents from "./indieEvents";
 import { useForm } from "react-hook-form";
+import { useEffect } from "react";
 
 
 export default function Content() {
@@ -11,6 +12,12 @@ export default function Content() {
 
     //react-hook-form
     const { register, handleSubmit, reset, formState, formState: { errors }, formState: { isSubmitSuccessful } } = useForm();
+    //resetting the form please
+    useEffect(() => {
+        if (formState.isSubmitSuccessful) {
+            reset({ year: '', revenue: '' });
+        }
+    }, [formState, reset]);
 
     const { isLoading, isError, data: revenue, error } = useQuery({
         queryKey: ['revenue'],
@@ -45,7 +52,7 @@ export default function Content() {
             <div>
                 <form className="flex flex-col gap-y-2" onSubmit={handleSubmit((data) => { console.log(data); })}>
                     <div>
-                        <label for="year-choice">Choose year: </label>
+                        <label htmlFor="year-choice">Choose year: </label>
                         <input
                             list="year-options"
                             id="year-choice"
@@ -63,7 +70,7 @@ export default function Content() {
                         <p>{errors.year && <span className='text-rose-500'>This field is required</span>}</p>
                     </div>
                     <div>
-                        <label for="revenue">Revenue : ₹ </label>
+                        <label htmlFor="revenue">Revenue : ₹ </label>
 
                         <input
                             type="text"
